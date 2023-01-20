@@ -1,22 +1,66 @@
-Official website for UPE @ UC Berkeley.
-Website is based of off the Devoll Jekyll template.
+# Clancy is an elegant portfolio theme for Jekyll
 
-You need to have Ruby/Jekyll installed. We are not using bundler, nor do we have a Gemfile.
-Here are some instructions to get Ruby and Jekyll (though since we don't use bundler, running ```gem install jekyll``` after installing Ruby should be enough.
-https://jekyllrb.com/docs/installation/
+Clancy is an elegant portfolio theme for Jekyll designed for photographers, designers, illustrators, artists, creatives, etc. This theme will help you professionally introduce yourself to your visitors and showcase your work in a minimalistic style. This super clean and fully optimized theme can be easily customized to suit your needs.
 
-After you Ruby/Jekyll installed, clone the repo. To view the website locally, run ```jekyll serve``` in the root directory. This will usually host the website at ```localhost:4000```, but read the output if that does not work. 
+* * *
 
-If there are questions regarding the website, please contact <publicity (at) upe.berkeley.edu>.
+### Demo
 
-The staging site is up at [upenu.github.io](https://upe.berkeley.edu) for testing. If everything is working there, changes can be pushed to the live version.
+Check the theme in action [Live Demo](https://clancy.netlify.app/) |
+[Artem Sheludko](https://jekyllthemes.io/developers/artem-sheludko)
 
-Once in the OCF hosting machince (only UPE Dev Team), go to the git repo and follow these steps:
-```git status``` Make sure there are not any local changes. 
-```git pull origin master``` 
-```jekyll build -d ~/public_html``` the -d was mentioned in the OCF documentation, not sure what it does. We need to build the website to the ```~/public_html``` directory since that is what is hosted. 
+* * *
 
-Notes:
-The website does not use ```site.url``` (found in ```_config.yml``` for anything other than canonical in the head. The site also does not support any baseurls and as all paths start at the root (ie: begin with "/")  
+### Theme features
 
+- Works with GitHub Pages (host it for free)
+- Dark and light mode user can select themself
+- 100% responsive Design
+- Clean and Modern Code
+- Optimized for mobile devices
+- Super fast performance ⚡⚡⚡
+- No jQuery, only vanilla JS
+- Social sharing buttons
+- Scroll to top button
+- Syntax highlighting (supports the Jekyll syntax highlighter)
+- Compatible with modern browsers
+- Medium style image zoom
+- Image Lazy loading
+- Image gallery
+- Tags Page
+- Custom logo support
+- Supports contact form (Formspree)
+- Supports MailChimp newsletter
+- Supports Disqus comments
+- Supports Google Analytics
+- Ionicons icons
+- Free Google Fonts
+- Free Updates & Support
 
+* * *
+
+### Installation
+
+#### Installing Ruby & Jekyll
+
+If this is your first time using Jekyll, please follow the [Jekyll docs](https://jekyllrb.com/docs/installation/) and make sure your local environment (including Ruby) is setup correctly.
+
+* * *
+
+### Deployment
+
+To run the theme locally, navigate to the theme directory and run `bundle install` to install the dependencies, then run `jekyll serve` or `bundle exec jekyll serve` to start the Jekyll server.
+
+I would recommend checking the [Deployment Methods](https://jekyllrb.com/docs/deployment-methods/) page on Jekyll website.
+
+* * *
+
+### Documentation
+
+Before using the Clancy theme, please read the attached documentation.
+
+* * *
+
+### Support
+
+<p>If you have any questions, please feel free to contact me by mail <a href="mailto:hi.artemsheludko@gmail.com">Contact</a><p>

@@ -3,25 +3,40 @@
 <div class="container">
   <div class="row">
     <div class="col col-12">
-      <nav class="pagination">
-        <div class="pagination__inner">
-
-          <div class="pagination__list">
-            {% if paginator.previous_page %}
-              <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination__prev pagination__item"><i class="ion ion-ios-arrow-back"></i> Prev</a>
+      <nav class="pagination animate">
+        <div class="pagination__list">
+          {% if paginator.previous_page %}
+            {% if paginator.previous_page == 1 %}
+              <a class="previous-link" href="/blog/">&laquo;</a>
             {% else %}
-              <span class="pagination__prev pagination__item disabled"><i class="ion ion-ios-arrow-back"></i> Prev</span>
+              <a class="previous-link" href="/blog/page/{{ paginator.previous_page }}/">&laquo;</a>
             {% endif %}
       
-            <div class="pagination__count pagination__item">Page {{ paginator.page }} of {{paginator.total_pages}}</div>
+          {% else %}
+            <span class="disabled">&laquo;</span>
+          {% endif %}
       
-            {% if paginator.next_page %}
-              <a href="{{ paginator.next_page_path | relative_url }}" class="pagination__next pagination__item">Next <i class="ion ion-ios-arrow-forward"></i></a>
+          <div class="counter-box">
+            {% if paginator.page == 1 %}
+              <span class="active-link">1</span>
             {% else %}
-              <span class="pagination__next pagination__item disabled">Next <i class="ion ion-ios-arrow-forward"></i></span>
+              <a class="back-link" href="/blog/">1</a>
             {% endif %}
+            {% for count in (2..paginator.total_pages) %}
+      
+            {% if count == paginator.page %}
+              <span class="active-link">{{ count }}</span>
+              {% else %}
+                <a class="count-number" href="/blog/page/{{ count }}/">{{ count }}</a>
+              {% endif %}
+            {% endfor %}
           </div>
-
+      
+          {% if paginator.next_page %}
+            <a class="next-link" href="{{ site.baseurl }}/blog/page/{{ paginator.next_page }}/">&raquo;</a>
+          {% else %}
+            <span class="disabled">&raquo;</span>
+          {% endif %}
         </div>
       </nav>
     </div>

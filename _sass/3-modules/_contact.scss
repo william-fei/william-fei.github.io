@@ -1,4 +1,12 @@
 /* Contact */
+.form-box {
+  margin-bottom: 100px;
+
+  @media only screen and (max-width: $mobile) {
+    margin-bottom: 80px;
+  }
+}
+
 .contact-head {
   margin-bottom: 32px;
 }
@@ -14,21 +22,22 @@
 .form__input {
   width: 100%;
   padding: 20px;
-  font-size: 14px;
-  font-weight: 500;
-  border: 2px solid var(--border-color);
-  border-radius: 2px;
-  outline: none;
-  transition: .25s ease-in-out;
+  font-size: 16px;
+  font-weight: 400;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  outline: 0;
+  transition: .2s ease-in-out;
   resize: vertical;
   color: var(--heading-font-color);
-  background-color: var(--background-color);
+  background-color: var(--background-alt-color);
 
   &::placeholder {
-    color: var(--text-color);
+    color: var(--heading-font-color);
   }
 
   &:focus {
-    border-color: var(--heading-font-color);
+    border-color: var(--brand-color);
+    background-color: transparent;
   }
 }

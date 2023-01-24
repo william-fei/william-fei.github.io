@@ -1,140 +1,132 @@
 ---
 #-------------------------------
 # Site Settings
-title: Tropic Moon
+title: william fei
 logo: # You can add own logo. For example '/images/logo.png'.
-#author: Jason Collins
-#description: Clancy is a elegant portfolio theme for Jekyll.
+description: This is the homepage of William Fei, Computer Science student at UC Berkeley.
+color_scheme: dark # You can choose three modes auto, light, and dark. By default, the auto mode is set, which means the user can choose the light or dark mode themself.
 
 #-------------------------------
-# Menu Settings
+# Navigation Settings
 menu__settings:
-  menu__items:
-    - title: "Home"
-      url: "/"
-    # - title: "Blog"
-    #   url: "/blog/"
-    - title: "About"
-      url: "/about/"
-    - title: "Collab"
-      url: "/collab/"
-    # - title: "Contact"
-    #   url: "/contact/"
-    # - title: "Elements"
-    #   url: "/elements/"
+    menu__items:
+        - title: "Home"
+          url: "/"
+        - title: "Portfolio"
+          url: "/photography/"
+        - title: "Projects"
+          submenu:
+              - title: "CS"
+                url: "/cs/"
+              - title: "Other"
+                url: "/projects/"
+              - title: "ASD"
+                url: "/portfolio/"
+        # - title: "Blog"
+        #   url: "/blog/"
+        - title: "About"
+          url: "/about/"
+        - title: "Contact me"
+          url: "/contact/"
+
+#-------------------------------
+# Author Settings
+author:
+    author__name: william fei
+    author__avatar: "/assets/images/profile_picture_square.jpg"
+
+social:
+    - { icon: "ion-logo-linkedin", link: "https://www.linkedin.com/in/williamfei/" }
+    - { icon: "ion-logo-github", link: "https://github.com/william-fei" }
+    - { icon: "ion-logo-instagram", link: "https://www.instagram.com/william._.fei/" }
+
+# Example of adding a new link to the footer - {icon: "ion-logo-dribbble", link: "https://dribbble.com"}
+# Other icons can be found at https://ionicons.com/v4/
 
 #-------------------------------
 # Hero Settings
 hero:
-  hero__title: Hello, my name is Mike Laurence. I’m an engineer & photographer based in New York.
-  hero__description: During the day, I build cool things for Reality Labs @ Meta. At night, I explore fantastical universes and soundscapes. I'm fascinated by futurism, space travel, simulation theory, and anything else that combines science and art.
+    hero__title: Hi there!
+    hero__description: I'm a computer science student at UC Berkeley and I take photos sometimes too.
+    hero__image: "/assets/images/profile_picture_square.jpg"
 
 #-------------------------------
-# Portfolio Settings
-portfolio:
-  portfolio__title: Portfolio
-  portfolio__gallery:
-    - image: /assets/photos/2022-2-6 neon tropic moon.jpeg
-      description: Ready for the tropics
-
-    - image: /assets/photos/2022-1-8 dark tentacle sphere.jpeg
-      #title: Cloaked in the outer wilds
-      description: Cloaked in the outer wilds
-
-    - image: /assets/photos/2022-1-11 a hill.jpeg
-      title: Albina
-      description: It may be junk, but it's still shelter
-
-    - image: /assets/photos/2021-1-25 red mushroom field.jpeg
-      description: Possibly psychadelic space mushrooms
-
-    - image: /assets/photos/2022-1-17 beam him up sprite.jpeg
-      title: Mark
-      description: Invading one-by-one
-
-    - image: /assets/photos/2020-4-4 tia in red.jpeg
-      title: Tia
-      description: Roses are red and sometimes dead
-
-    - image: /assets/photos/2020-3-3 laying on grid B.jpeg
-      description: On the grid, literally
-
-    - image: /assets/photos/2018-12-16 messy-bodega-redshift.jpeg
-      description: Big robot, small bodega
-
-    # - image: /assets/photos/gallery-08.jpg
-    #   title: Luca Bravo
-    #   description: Worms eye view of city buildings <a href="https://unsplash.com/photos/a6x7YPiNxwI">Unsplash</a>
-
-    # - image: /assets/photos/gallery-09.jpg
-    #   title: Books and Laptop
-    #   description: Silver laptop computer with two books on the top <a href="https://unsplash.com/photos/fFIAKABImf4">Unsplash</a>
+# CS Settings
+cs__settings:
+    cs__title: My Projects
+    cs__description:
 
 #-------------------------------
-# Subscribe Settings
-# mailchimp:
-#   mailchimp__title: Get updates and digital art inspiration # Add your Title
-#   mailchimp__identifier: # Add your MailChimp form identifier. For example - blogenjoyfreedom.us16.list-manage.com/subscribe/post?u=cd56155d76ddeeb4c0bc4d080&amp;id=7a526cd13e
-#   mailchimp__button__text: Subscribe # Add your button text.
-#   mailchimp__bg__color: "#f2eef8" # To change the color of the figure, add a hexadecimal color code (HEX). For example - "#f2eef8" (You can generate any color here - https://htmlcolorcodes.com/).
+# Photography Settings
+photography__settings:
+    photography__title: My Portfolio
+    photography__description:
 
 #-------------------------------
-# Footer Settings
-social:
-  - {
-      icon: "ion-logo-twitter",
-      color: "#55acee",
-      label: Twitter,
-      link: "https://twitter.com/punkbot",
-    }
-  # - {
-  #     icon: "ion-logo-facebook",
-  #     color: "#3b5999",
-  #     label: Facebook,
-  #     link: "https://facebook.com",
-  #   }
-  # - {
-  #     icon: "ion-logo-pinterest",
-  #     color: "#bd081c",
-  #     label: Pinterest,
-  #     link: "https://pinterest.com",
-  #   }
-  # - {
-  #     icon: "ion-logo-dribbble",
-  #     color: "#ea4c89",
-  #     label: Dribbble,
-  #     link: "https://dribbble.com",
-  #   }
-  - {
-      icon: "ion-logo-instagram",
-      color: "#e4405f",
-      label: Instagram,
-      link: "https://instagram.com/tropicmoon.co",
-    }
-  # - {
-  #     icon: "ion ion-logo-vimeo",
-  #     color: "#1393cd",
-  #     label: Vimeo,
-  #     link: "https://vimeo.com",
-  #   }
+# Projects Settings
+projects__settings:
+    projects__title: Other projects
+    projects__description:
 
-# Example of adding a new link to the footer section - {icon: "ion-logo-github", color: "#24292e, label: Github, link: "https://github.com"}
-# Other icons can be found at https://ionicons.com/v4/
+
+#-------------------------------
+# Blog Section
+blog__settings:
+    blog__title: Recent Posts
+    blog__description:
+
+#-------------------------------
+# Gallery Footer Settings
+# gallery:
+#     gallery__images:
+#         - alt: "Rest"
+#           url: "/images/gallery-1.jpg"
+#         - alt: "Lifestyle"
+#           url: "/images/gallery-2.jpg"
+#         - alt: "Hobby"
+#           url: "/images/gallery-3.jpg"
+#         - alt: "Notes"
+#           url: "/images/gallery-4.jpg"
+
+#-------------------------------
+# Footer Navigation Settings
+footer_menu__settings:
+    menu__items:
+        - title: "Home"
+          url: "/"
+        - title: "CS Projects"
+          url: "/cs/"
+        - title: "Photography Projects"
+          url: "/photography/"
+        - title: "Other Projects"
+          url: "/projects/"
+        # - title: "Blog"
+        #   url: "/blog/"
+        - title: "About"
+          url: "/about/"
+        - title: "Contact me"
+          url: "/contact/"
 
 #-------------------------------
 # Contact Settings
 contact:
-  email: your@email.com # Add your email for contact form
-  description: Clancy comes with a built-in contact form, that you can use with Formspree service to handle up to 50 submissions per month for free. You could also easily switch to another contact form service if you want. # Add a description of your form.
+    email: collin.etienne.contact@gmail.com # Add your email address or form_id if you use FormSpree version of the contact form in /_pages/contact.html
+    description: If you want to collaborate or have questions, don't hesitate to contact me. # Add a description of your form
+
+#-------------------------------
+# Newsletter
+mailchimp: # To enable the mailchimp form, use the value 'enable'. To disable the form, leave the field blank.
+mailchimp__identifier: # Add your MailChimp form identifier. For example - frnla.us6.list-manage.com/subscribe/post?u=6314d69a3f315af7ce3fb00a0&amp;id=3038727cc3
+mailchimp__input__text: Your email address...
+mailchimp__button__text: Get updates
 
 # NOTE
-# Clancy comes with a built-in contact form, that you can use with Formspree service to handle up to 50 submissions per month for free. You could also easily switch to another contact form service if you want.
+# Hilton theme comes with a contact form built-in. You can use this form with Formspree (https://formspree.io/) service and get up to 50 submissions for free. Also, you can easily switch to another service if you want.
 
 #-------------------------------
 # Comment Section (Disqus)
-
-disqus-identifier: anvodstudio-demo # add your shortname for Disqus Comment. For example anvodstudio-demo
+# disqus-identifier: # Add your shortname for Disqus Comment. For example anvodstudio-demo
 
 #-------------------------------
 # Google Analytics
-google-analytics: # Add your identifier. For example UA-99631805-1.
+# google-analytics: # Add your GA Tracking Id

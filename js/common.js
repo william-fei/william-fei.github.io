@@ -2,16 +2,15 @@ document.addEventListener("DOMContentLoaded", function() {
   'use strict';
 
   var html = document.querySelector('html'),
-    menuOpenIcon = document.querySelector(".nav__icon-menu"),
+    menuOpenIcon = document.querySelector(".icon__menu"),
     menuCloseIcon = document.querySelector(".nav__icon-close"),
     menuList = document.querySelector(".main-nav"),
-    toggleTheme = document.querySelector(".toggle-theme"),
-    portfolioViewButton = document.querySelector('.portfolio__toggle'),
+    toggleTheme = document.querySelector(".toggle-theme-js"),
     btnScrollToTop = document.querySelector(".top");
 
 
   /* =======================================================
-  // Menu + Theme Switcher + Toggle list view
+  // Menu + Theme Switcher
   ======================================================= */
   menuOpenIcon.addEventListener("click", () => {
     menuOpen();
@@ -21,16 +20,6 @@ document.addEventListener("DOMContentLoaded", function() {
     menuClose();
   });
 
-  toggleTheme.addEventListener("click", () => {
-    darkMode();
-  });
-
-  if (portfolioViewButton) {
-    portfolioViewButton.addEventListener("click", () => {
-      viewToggle();
-    });
-  }
-
   function menuOpen() {
     menuList.classList.add("is-open");
   }
@@ -38,6 +27,12 @@ document.addEventListener("DOMContentLoaded", function() {
   function menuClose() {
     menuList.classList.remove("is-open");
   }
+
+  if (toggleTheme) {
+    toggleTheme.addEventListener("click", () => {
+      darkMode();
+    });
+  };
 
 
   // Theme Switcher
@@ -54,16 +49,26 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
 
-  // Toggle list view
-  function viewToggle() {
-    if (html.classList.contains('view-list')) {
-      html.classList.remove('view-list');
-      localStorage.removeItem("classView");
-      document.documentElement.removeAttribute("list");
-    } else {
-      html.classList.add('view-list');
-      localStorage.setItem("classView", "list");
-      document.documentElement.setAttribute("list", "");
+  /* ================================================================
+  // Stop Animations During Window Resizing and Switching Theme Modes
+  ================================================================ */
+  let disableTransition;
+
+  if (toggleTheme) {
+    toggleTheme.addEventListener("click", () => {
+      stopAnimation();
+    });
+
+    window.addEventListener("resize", () => {
+      stopAnimation();
+    });
+
+    function stopAnimation() {
+      document.body.classList.add("disable-animation");
+      clearTimeout(disableTransition);
+      disableTransition = setTimeout(() => {
+        document.body.classList.remove("disable-animation");
+      }, 100);
     }
   }
 
@@ -71,26 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
   /* =======================
   // Responsive Videos
   ======================= */
-  reframe(".post__content iframe:not(.reframe-off), .page__content iframe:not(.reframe-off)");
-
-
-  /* =======================
-  // Zoom Image
-  ======================= */
-  const lightense = document.querySelector(".page__content img, .post__content img"),
-  imageLink = document.querySelectorAll(".page__content a img, .post__content a img");
-
-  if (imageLink) {
-    for (var i = 0; i < imageLink.length; i++) imageLink[i].parentNode.classList.add("image-link");
-    for (var i = 0; i < imageLink.length; i++) imageLink[i].classList.add("no-lightense");
-  }
-
-  if (lightense) {
-    Lightense(".page__content img:not(.no-lightense), .post__content img:not(.no-lightense)", {
-    padding: 60,
-    offset: 30
-    });
-  }
+  reframe(".post__content iframe:not(.reframe-off), .page__content iframe:not(.reframe-off), .project-content iframe:not(.reframe-off)");
 
 
   /* =======================
@@ -101,21 +87,58 @@ document.addEventListener("DOMContentLoaded", function() {
   })
 
 
-  /* ==========================
-  // Lightbox Gallery
-  ========================== */
-  const lightbox = GLightbox({
-    touchNavigation: true,
-    loop: true,
-    moreLength: 0,
-    autoplayVideos: true
-  });
+  /* =======================
+  // Zoom Image
+  ======================= */
+  const lightense = document.querySelector(".page__content img, .post__content img, .project-content img, .gallery__image img"),
+  imageLink = document.querySelectorAll(".page__content a img, .post__content a img, .project-content a img, .gallery__image a img");
+
+  if (imageLink) {
+    for (var i = 0; i < imageLink.length; i++) imageLink[i].parentNode.classList.add("image-link");
+    for (var i = 0; i < imageLink.length; i++) imageLink[i].classList.add("no-lightense");
+  }
+
+  if (lightense) {
+    Lightense(".page__content img:not(.no-lightense), .post__content img:not(.no-lightense), .project-content img:not(.no-lightense), .gallery__image img:not(.no-lightense)", {
+    padding: 60,
+    offset: 30
+    });
+  }
+
+
+  /* ============================
+  // Testimonials Slider
+  ============================ */
+  if (document.querySelector(".my-slider")) {
+    var slider = tns({
+      container: ".my-slider",
+      items: 3,
+      slideBy: 1,
+      gutter: 32,
+      nav: true,
+      mouseDrag: true,
+      autoplay: false,
+      controls: false,
+      speed: 500,
+      responsive: {
+        1024: {
+          items: 3,
+        },
+        768: {
+          items: 2,
+        },
+        0: {
+          items: 1,
+        }
+      }
+    });
+  }
 
 
   /* =================================
   // Smooth scroll to the tags page
   ================================= */
-  document.querySelectorAll(".tag__link").forEach(anchor => {
+  document.querySelectorAll(".tag__link, .top__link").forEach(anchor => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
 
@@ -129,10 +152,6 @@ document.addEventListener("DOMContentLoaded", function() {
   /* =======================
   // Scroll Top Button
   ======================= */
-  window.addEventListener("scroll", function () {
-    window.scrollY > window.innerHeight ? btnScrollToTop.classList.add("is-active") : btnScrollToTop.classList.remove("is-active");
-  });
-
   btnScrollToTop.addEventListener("click", function () {
     if (window.scrollY != 0) {
       window.scrollTo({

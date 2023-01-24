@@ -1,34 +1,71 @@
 ---
 #-------------------------------
 # General Site Settings
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://tropicmoon.co" # the base hostname & protocol for your site, e.g. http://example.com
+# baseurl: "" # Comment-out if website lives at "example.com". Else, the subpath of your site, e.g. /blog
+url: "https://etiennecollin.com" # the base hostname & protocol for your site, e.g. http://example.com
 
 #-------------------------------
 # Build Settings
 markdown: kramdown
 permalink: /:title
 plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
+    - jekyll-paginate
+    - jekyll-sitemap
 
-paginate: 9
+paginate: 6
 paginate_path: "/blog/page/:num"
+
+#-------------------------------
+# Collections
+collections:
+    pages:
+        output: true
+        permalink: /:name
+    posts:
+        output: true
+        permalink: /blog/:slug
+    cs:
+        output: true
+        permalink: /cs/:slug
+    projects:
+        output: true
+        permalink: /project/:slug
+    photography:
+        output: true
+        permalink: /photography/:slug
 
 # Pages Path
 defaults:
-  - scope:
-      path: "_pages"
-    values:
-      permalink: /:basename:output_ext
-  - scope:
-      path: "_posts"
-    values:
-      permalink: /blog/:slug
-
-include:
-  - _pages
+    - scope:
+          path: ""
+      values:
+          layout: "default"
+    - scope:
+          path: ""
+          type: "pages"
+      values:
+          layout: "page"
+    - scope:
+          path: ""
+          type: "posts"
+      values:
+          layout: "post"
+    - scope:
+          path: ""
+          type: "cs"
+      values:
+          layout: "project"
+    - scope:
+          path: ""
+          type: "photography"
+      values:
+          layout: "project"
+    - scope:
+          path: ""
+          type: "projects"
+      values:
+          layout: "project"
 
 sass:
-  sass_dir: _sass
-  style: compressed
+    sass_dir: _sass
+    style: compressed

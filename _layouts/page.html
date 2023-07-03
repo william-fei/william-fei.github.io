@@ -1,36 +1,30 @@
 ---
-layout: default
+# Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+layout: base
 ---
 
-<div class="container">
-  <div class="row">
+<article class="page mb6" role="article">
+  <header>
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% include components/message.html text=page.description hide=page.hide_description %}
+  </header>
 
-    <div class="col col-12">
-      <div class="page-head">
-        <h1 class="page-title">{{ page.title | escape }}</h1>
-        {% if page.description %}
-          <p class="page-description">{{ page.description }}</p>
-        {% endif %}
-      </div>
-    </div>
+  {{ content }}
+</article>
 
-    {%if page.image %}
-    <div class="col col-12">
-      <div class="page-image animate">
-        <img class="lazy" data-src="{{site.baseurl}}{{page.image}}" alt="{{page.title}}">
-      </div>
-    </div>
-    {% endif %}
-
-  </div>
-</div>
-
-<!-- begin page -->
-<div class="container animate">
-  <article class="page">
-    <div class="page__content">
-      {{ content }}
-    </div>
-  </article>
-</div>
-<!-- end page -->
+{% include components/dingbat.html %}
+{% include body/comments.html %}

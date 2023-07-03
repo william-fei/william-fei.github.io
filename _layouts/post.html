@@ -1,90 +1,45 @@
 ---
-layout: default
+# Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+layout: base
 ---
 
-<div class="post-head">
-  <div class="container">
-    <div class="row">
+{% assign version = jekyll.version | split:'.' %}
+{% assign major = version[0] | plus:0 %}
+{% assign minor = version[1] | plus:0 %}
+{% assign patch = version[2] | plus:0 %}
 
-      <div class="col col-12">
-        <div class="post-info">
+{% include_cached components/post.html post=page no_link_title=true no_excerpt=true hide_image=page.hide_image hide_description=page.hide_description %}
 
-          {% if page.tags.size >= 1 %}
-            <div class="post-tags">
-              {% for tag in page.tags %}
-                <a href="{{ site.baseurl }}/tags/?tag={{ tag | downcase | url_encode }}" class="post__tag">{{ tag }}</a>
-              {% endfor %}
-            </div>
-          {% endif %}
+{% include components/dingbat.html %}
 
-          <h1 class="post-title">{{ page.title | escape }}</h1>
-
-          <div class="post-meta">
-            <a href="{{site.baseurl}}/about/" class="post-author-link">{{site.data.settings.author.author__name}}</a> –
-            <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    {%if page.image %}
-    <div class="col col-12">
-      <div class="post-image animate">
-        <img class="lazy" data-src="{{site.baseurl}}{{page.image}}" alt="{{page.title}}">
-      </div>
-    </div>
-    {%endif %}
-  </div>
-</div>
-
-<!-- begin post -->
-<div class="container animate">
-
-  <article class="post">
-
-    <div class="post__content">
-      {{ content }}
-    </div>
-
-    <div class="post__share">
-      <ul class="share__list list-reset">
-        <li class="share__item">
-          <a class="share__link share__twitter"
-            href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ site.url }}{{ site.baseurl }}{{ page.url }}"
-            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
-            title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
-        </li>
-        <li class="share__item">
-          <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}"
-            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
-            title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
-        </li>
-        <li class="share__item">
-          <a class="share__link share__pinterest" href="http://pinterest.com/pin/create/button/?url={{ site.url }}{{ page.url }}&amp;media={{ site.url }}{{ site.baseurl }}{{ page.image }}&amp;description={{ page.title | uri_escape }}"
-            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest"
-            rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
-        </li>
-      </ul>
-    </div>
-
-  </article>
-</div>
-<!-- end post -->
-
-{% include related-posts.html %}
-
-{% if site.data.settings.disqus-identifier %}
-  <div class="container">
-    <div class="row">
-      <div class="col col-12">
-        {% include disqus-comments.html %}
-      </div>
-    </div>
-  </div>
-{% endif %}
+{% assign addons = page.addons | default:site.hydejack.post_addons %}
+{% unless addons %}{% assign addons = "about,newsletter,related,random" | split:"," %}{% endunless %}
+{% for addon in addons %}
+  {% case addon %}
+  {% when 'about' %}
+     {% include_cached components/about.html author=page.author %}
+  {% when 'newsletter' %}
+    {% include if-non-null try="pro/newsletter.html" %}
+  {% when 'related' %}
+    {% include if-non-null try="pro/related-posts.html" fallback="components/related-posts.html" %}
+  {% when 'random' %}
+    {% include if-non-null try="pro/random-posts.html" %}
+  {% when 'comments' %}
+    {% include body/comments.html %}
+  {% else %}
+  {% endcase %}
+{% endfor %}

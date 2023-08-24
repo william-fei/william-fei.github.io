@@ -71,7 +71,7 @@ publications:
   - name: "BART"
     publisher: "William Fei"
     releaseDate: "2022-12-01"
-    website: "/projects/ble-macro-keyboard/"
+    website: "/projects/BART/"
     summary: "Trained a predictive neural network to detect abnormal behavior in air conditioning systems"
 skills:
   - name: "Data Science and Machine Learning"

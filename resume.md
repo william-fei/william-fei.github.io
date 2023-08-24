@@ -1,8 +1,8 @@
 ---
 layout: resume
-title: Résumé
+title: ASDSADASD
 description: >
-  <i>"I'm Nick Engmann and I hack & design hardware & web dev projects to try & stand out in the crowd & mentor the engineers of tomorrow"</i>
+  <i>"ASDASDSADASDSA"</i>
 hide_description: false
 menu: true
 order: 3

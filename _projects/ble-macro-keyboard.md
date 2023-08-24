@@ -1,15 +1,15 @@
 ---
 layout: project
 title: 'BLE Macro Keyboard'
-date: 10 Oct 2020
+date: 20 Jan 2023
 image:
-  path: /assets/img/projects/blemacrokeyboard.jpg
-screenshot: /assets/img/projects/blemacrokeyboard2.jpg
+  path: /assets/img/projects/IMG_3022.jpeg
+screenshot: /assets/img/projects/IMG_3022.jpeg
 links:
-  # - title: Thingiverse
-  #   url: https://www.thingiverse.com/thing:3697811
-  # - title: Instructable
-  #   url: 
+   - title: BART
+     url: https://www.bart.gov/
+   - title: Runner Up for Data Science Lifecycle Ribbon of Excellence @ Fall 2022 Sympoium
+     url: https://data.berkeley.edu/discovery/semester-overviews/fall-2022-overview
 caption: 8 key macro keyboard powered by Adafruit Bluefruit boards
 description: >
     Made a BLE 8 key macro keyboard. Circuit that is powered by an Adafruit Bluefruit M0 Feather board. Also battery powered to keep mobile and wire free 

@@ -20,53 +20,45 @@ url:                   https://nickengmann.github.io
 lang:                  en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 Cyril 'Nick' Engmann
+title:                 William Fei
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
- I am Nick Engmann and I hack & design hardware & web dev projects to try & stand out in the crowd & mentor the engineers of tomorrow.
+ I am William Fei and I design hardware & web dev projects to try & stand out in the crowd & mentor the engineers of tomorrow.
 
 # A shorter description for the sidebar.
 tagline:               >
-  Engineer. Hacker. Developer.
+  Engineer. Innovator. Developer.
 
 # A list of keywords for your blog
-keywords:              [hacker, developer, engineer, hardware, brooklyn, san-diego]
+keywords:              [innovator, developer, engineer, hardware, portland, berkeley]
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
-logo:                  /assets/img/logo.png
+logo:                  /assets/img/profile_square.jpg
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
-  name:                <Cyril> <Nick> <Engmann>
-  email:               <cyengmann@gmail.com>
-  # Used by `jekyll-seo-tag`:
-  twitter:             <whoiscyril>
+  name:                <William> <Fei>
+  email:               <williamfei@berkeley.edu>
 
 # Add links to the sidebar.
 menu:
-  - title:             Blog
-    url:               /blog/
-  - title:             Projects
+  - title:             Projects & Experiences
     url:               /projects/
-  - title:             Résumé
-    url:               /resume/
+  - title:             Other Ventures
+    url:               /ventures/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
 legal:
   - title:             LICENSE
     url:               /LICENSE/
-  - title:             NOTICE
-    url:               /NOTICE/
-  - title:             CHANGELOG
-    url:               /CHANGELOG/
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2022. All rights reserved.
+copyright:             © 2023. All rights reserved.
 
 # Format of the permalinks
 permalink:             /blog/:categories/:year-:month-:day-:title/
@@ -87,7 +79,7 @@ paginate_path:         /blog/:num/
 # ----------------------------------------------------------------------------------------
  
 # Sidebar image and theme color of the site.
-accent_image:          /assets/img/sidebar-bg.jpg
+accent_image:          /assets/img/nasa-bg.jpeg
 accent_color:          rgb(79,177,186)
 
 # This is used for the `theme-color` meta tag,
@@ -270,7 +262,7 @@ hydejack:
     always:            false
 
     # Set to `true` to use the dark theme based on visitors' preference (OS setting).
-    dynamic:           true
+    dynamic:           false
 
     # Set to `true` to allow visitors to switch between light and dark mode.
     icon:              true
@@ -300,6 +292,10 @@ collections:
 
   projects:
     permalink:         /projects/:path/
+    output:            true
+  
+  ventures:
+    permalink:         /ventures/:path/
     output:            true
 
 
@@ -407,21 +403,21 @@ jekyll_compose:
         A short ~160 character description of your post for search engines,
         social media previews, etc.
       image:
-        path: /assets/img/sidebar-bg.jpg
+        path: /assets/img/nasa-bg.jpeg
     posts:
       layout: post
       description: > 
         A short ~160 character description of your post for search engines,
         social media previews, etc.
       image:
-        path: /assets/img/sidebar-bg.jpg
+        path: /assets/img/nasa-bg.jpeg
     projects:
       layout: project
       description: > 
         A short ~160 character description of your post for search engines,
         social media previews, etc.
       image:
-        path: /assets/img/sidebar-bg.jpg
+        path: /assets/img/nasa-bg.jpeg
       links:
         - title: Project Link
           url: https://example.com

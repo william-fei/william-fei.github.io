@@ -1,7 +1,7 @@
 ---
 layout: project
-title: 'Alan Rails Cosplay'
-date: 14 Nov 2017
+title: 'Musical Directing'
+date: 1 Jan 2022
 image: 
   path: /assets/img/projects/alanrails.gif
 screenshot: /assets/img/projects/alanrails.gif
